@@ -24,9 +24,7 @@ body{
     flex-direction: column;
     gap: 10rem;
 }
-.drag{
-    
-}
+
 .drop ul{
     list-style: none;
    
@@ -83,5 +81,25 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100%;
+    }
+}
+
+.effect{
+    animation: efect .5s alternate infinite ease-in;
+}
+
+@keyframes efect {
+    0%{
+        transform: translateY(40px);
+        color: black;
+    }
+    50%{
+        transform: translateY(50%);
+        color: white;
+    }
+    100%{
+        transform: translateY(0%);
+        color: white;
     }
 }

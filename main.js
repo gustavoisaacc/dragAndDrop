@@ -3,6 +3,7 @@ const dragElement = document.querySelector('.pokemon')
 const CARD = 4;
 let pokemonSerch = [];
 let pokemonName = [];
+let countError = 0;
 
 
 async function serchPokemonById(id) {
@@ -53,6 +54,16 @@ async function serchPokemonById(id) {
             if(dragNameId === dropNameText){
                e.target.innerHTML = "";
                e.target.appendChild(pokemonElement)
+            }else{
+                countError ++
+                const audio = document.createElement("audio");
+                audio.preload = "auto";
+                audio.src = "./incorrecto.mp3";
+                audio.play();
+
+                if(countError > 3){
+
+                }
             }
           
         })
@@ -72,3 +83,8 @@ for(let i = 0; i < CARD; i++){
     let id = getRandomId(150)
     serchPokemonById(id)
 }
+const audio = document.createElement("audio");
+audio.preload = "auto";
+audio.src = "";
+audio.play();
+document.body.appendChild(audio);
