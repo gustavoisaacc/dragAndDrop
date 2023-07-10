@@ -29,6 +29,7 @@ body{
     list-style: none;
    
 }
+
 .drop ul li{
     font-size: 5rem;
     border: .2rem dashed white;
@@ -50,7 +51,7 @@ body{
 .title{
     font-size: 5rem;
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 8rem;
 }
 
 .effect{
@@ -73,16 +74,8 @@ body{
 }
 
 @media (max-width: 850px) {
-    .pokemon, .drop{
-        width: 50%;
-    }
-    .play{
-        flex-direction: row;
-        gap: 0;
-    }
     .drop ul{
-        flex-direction: column;
-        gap: 15rem;
+        gap: 5rem;
     }
     .drop ul {
         margin-top: 10rem;
@@ -126,6 +119,7 @@ body{
     height: 100vh;
     position: relative;
     z-index: 10;
+    margin: 8rem 0;
 }
 
 .ups{
