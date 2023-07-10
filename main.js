@@ -1,9 +1,15 @@
 const dropElement = document.querySelector('#drop-element');
-const dragElement = document.querySelector('.pokemon')
+const dragElement = document.querySelector('.pokemon');
+const btn = document.querySelector('.btn');
+const ups = document.querySelector('.ups')
+const container = document.querySelector('.container');
+const errorTitle = document.querySelector('.errorTitle');
+
 const CARD = 4;
 let pokemonSerch = [];
 let pokemonName = [];
 let countError = 0;
+
 
 
 async function serchPokemonById(id) {
@@ -53,7 +59,15 @@ async function serchPokemonById(id) {
             
             if(dragNameId === dropNameText){
                e.target.innerHTML = "";
-               e.target.appendChild(pokemonElement)
+               e.target.appendChild(pokemonElement);
+               var nodeList = dragElement.childNodes;
+                console.log(nodeList)
+                if((nodeList.length) === 5){
+                    errorTitle.innerHTML = 'Felicicades lo lograste'
+                    ups.classList.remove('hide');
+                    container.classList.add('background');
+                }
+              
             }else{
                 countError ++
                 const audio = document.createElement("audio");
@@ -61,9 +75,10 @@ async function serchPokemonById(id) {
                 audio.src = "./incorrecto.mp3";
                 audio.play();
 
-                if(countError > 3){
-                    const ups = document.querySelector('.ups')
-                    
+                if(countError > 2){
+                    errorTitle.innerHTML = 'Llego al limite de errores por favor intente de nuevo'
+                    ups.classList.remove('hide');
+                    container.classList.add('background');
                 }
             }
           
@@ -73,6 +88,11 @@ async function serchPokemonById(id) {
 
 }
 
+btn.addEventListener('click', ()=> {
+    ups.classList.add('hide');
+    container.classList.remove('background');
+    location. reload()
+})
 
 function getRandomId(max){
     return Math.floor(Math.random()*max)+1;
@@ -84,8 +104,3 @@ for(let i = 0; i < CARD; i++){
     let id = getRandomId(150)
     serchPokemonById(id)
 }
-const audio = document.createElement("audio");
-audio.preload = "auto";
-audio.src = "";
-audio.play();
-document.body.appendChild(audio);

@@ -53,6 +53,25 @@ body{
     margin-bottom: 5rem;
 }
 
+.effect{
+    animation: efect .5s alternate infinite ease-in;
+}
+
+@keyframes efect {
+    0%{
+        transform: translateX(10px);
+        color: black;
+    }
+    50%{
+        transform: translateX(0px);
+        color: white;
+    }
+    100%{
+        transform: translateX(-10px);
+        color: white;
+    }
+}
+
 @media (max-width: 850px) {
     .pokemon, .drop{
         width: 50%;
@@ -83,23 +102,64 @@ body{
         align-items: center;
         height: 100%;
     }
+    @keyframes efect {
+        0%{
+            transform: translateY(40px);
+            color: black;
+        }
+        50%{
+            transform: translateY(0px);
+            color: white;
+        }
+        100%{
+            transform: translateY(20px);
+            color: white;
+        }
+    }
+    
 }
 
-.effect{
-    animation: efect .5s alternate infinite ease-in;
+
+
+/*efecto de */
+.container{
+    height: 100vh;
+    position: relative;
+    z-index: 10;
 }
 
-@keyframes efect {
-    0%{
-        transform: translateY(40px);
-        color: black;
-    }
-    50%{
-        transform: translateY(50%);
-        color: white;
-    }
-    100%{
-        transform: translateY(0%);
-        color: white;
-    }
+.ups{
+    width: 50rem;
+    height: 50rem;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+}
+
+.errorTitle{
+    font-size: 5rem;
+    text-align: center;
+    padding:5rem 2rem;
+}
+
+.btn{
+    font-size: 5rem;
+    background: #ee5522;
+    position: absolute;
+    bottom: 2rem;    
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}
+
+.background{
+    background-color: rgba(0, 0, 0, 0.5);
 }
