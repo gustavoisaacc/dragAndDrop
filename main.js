@@ -62,7 +62,8 @@ async function serchPokemonById(id) {
                 audio.play();
 
                 if(countError > 3){
-
+                    const ups = document.querySelector('.ups')
+                    
                 }
             }
           
